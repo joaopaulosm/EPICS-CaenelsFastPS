@@ -1,0 +1,304 @@
+
+################################################################################
+## WRITE values
+################################################################################
+record(bo, "$(P)$(R)Mode-S")
+{
+    field(DESC, "Selects between voltage/current reg")
+    field(DTYP, "stream")
+    field(OUT,  "@caenels.proto setRegulationMode $(PORT)")
+    field(ZNAM, "V")
+    field(ONAM, "I")
+}
+
+record(ao, "$(P)$(R)Vol-S")
+{
+    field(DESC, "Voltage control (in V reg mode)")
+    field(DTYP, "stream")
+    field(EGU,  "V")
+    field(OUT,  "@caenels.proto setVoltage($(P)$(R)) $(PORT)")
+    field(PREC, "5")
+    # field(HOPR, "${MAX_V=20}")
+    # field(LOPR, "${MIN_V=0}")
+    # field(DRVH, "${MAX_V=20}")
+    # field(DRVL, "${MIN_V=0}")
+}
+
+record(ao, "$(P)$(R)Cur-S")
+{
+    field(DESC, "Current control (in V reg mode)")
+    field(DTYP, "stream")
+    field(EGU,  "A")
+    field(OUT,  "@caenels.proto setCurrent($(P)$(R)) $(PORT)")
+    field(PREC, "5")
+    # field(HOPR, "${MAX_I=300}")
+    # field(LOPR, "${MIN_I=0}")
+    # field(DRVH, "${MAX_I=300}")
+    # field(DRVL, "${MIN_I=0}")
+}
+
+record(bo, "$(P)$(R)Rst")
+{
+    field(DESC, "Reset status register/clear faults")
+    field(DTYP, "stream")
+    field(OUT,  "@caenels.proto resetStatus $(PORT)")
+    field(FLNK, "$(P)$(R)CalcCommand2 PP")
+}
+
+record(bo, "$(P)$(R)Rmp-S")
+{
+    field(DESC, "Enables/disables ramping to setpoint")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(VAL,  "1")
+    field(PINI, "YES")
+}
+
+record(bo, "$(P)$(R)Pwr-S")
+{
+    field(DESC, "Turn supply off/on")
+    field(DTYP, "stream")
+    field(OUT,  "@caenels.proto setEnable($(P)$(R)) $(PORT)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+}
+
+################################################################################
+## CALCULATED values
+################################################################################
+## Polarity
+record(calc, "${P}${R}CurrentPosPolarity") 
+{
+  field(DESC, "Current Positive Polarity")
+  field(CALC, "A>0.1")
+  field(INPA, "${P}${R}Cur-R CPP")
+}
+
+
+## Polarity
+record(calc, "${P}${R}CurrentNegPolarity") 
+{
+  field(DESC, "Current Positive Polarity")
+  field(CALC, "A<-0.1")
+  field(INPA, "${P}${R}Cur-R CPP")
+}
+
+################################################################################
+## READ values
+################################################################################
+
+record(ai, "$(P)$(R)Vol-R")
+{
+    field(DESC, "Output voltage")
+    field(DTYP, "stream")
+    field(EGU,  "V")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getOutputVoltage $(PORT)")
+    field(PREC, "5")
+}
+
+record(ai, "$(P)$(R)Cur-R")
+{
+    field(DESC, "Output current")
+    field(DTYP, "stream")
+    field(EGU,  "A")
+    field(SCAN, ".2 second")
+    field(INP,  "@caenels.proto getOutputCurrent $(PORT)")
+    field(PREC, "5")
+    # field(HIHI, "${HIHICUR=300}")
+    # field(HIGH, "${HICUR=295}")
+    # field(HHSV, "MAJOR")
+    # field(HSV,  "MINOR")
+}
+
+record(ai, "$(P)$(R)OutPwr-R")
+{
+    field(DESC, "Output power")
+    field(DTYP, "stream")
+    field(EGU,  "W")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getOutputPower $(PORT)")
+    field(PREC, "5")
+}
+
+record(ai, "$(P)$(R)SlewRateI-R")
+{
+    field(DESC, "Current Ramp Slew Rate")
+    field(DTYP, "stream")
+    field(EGU,  "A/s")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getSlewRateI $(PORT)")
+    field(PREC, "5")
+}
+
+record(ai, "$(P)$(R)SlewRateV-R")
+{
+    field(DESC, "Voltage Ramp Slew Rate")
+    field(DTYP, "stream")
+    field(EGU,  "V/s")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getSlewRateV $(PORT)")
+    field(PREC, "5")
+}
+
+record(ai, "$(P)$(R)GndCur-R")
+{
+    field(DESC, "Ground current")
+    field(DTYP, "stream")
+    field(EGU,  "A")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getGroundCurrent $(PORT)")
+    field(PREC, "3")
+}
+
+record(ai, "$(P)$(R)DCLnkVol-R")
+{
+    field(DESC, "DC Link voltage")
+    field(DTYP, "stream")
+    field(EGU,  "V")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getDCLinkVoltage $(PORT)")
+    field(PREC, "2")
+}
+
+record(ai, "$(P)$(R)HeatTmp-R")
+{
+    field(DESC, "Heatsink temperature")
+    field(DTYP, "stream")
+    field(EGU,  "deg C")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getTemperature $(PORT)")
+    field(PREC, "2")
+}
+
+record(mbbiDirect, "$(P)$(R)StsMSB-R")
+{
+    field(DESC, "Device status (MSB)")
+    field(DTYP, "stream")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getStatusMSB $(PORT)")
+}
+
+record(mbbiDirect, "$(P)$(R)StsLSB-R")
+{
+    field(DESC, "Device status (LSB)")
+    field(DTYP, "stream")
+    field(SCAN, "1 second")
+    field(INP,  "@caenels.proto getStatusLSB $(PORT)")
+}
+
+record (stringin, "$(P)$(R)Model-R")
+{
+    field(DESC, "Model")
+    field(DTYP, "stream")
+    field(INP,  "@caenels.proto getModel($(P)$(R)FWVer-R) $(PORT)")
+}
+record (stringin, "$(P)$(R)FWVer-R")
+{
+    field(DESC, "Firmware Version")
+}
+
+
+############################################################
+# Status Feedback
+############################################################
+record(bi, "$(P)$(R)WaveformExec") {
+    field(DESC, "Waveform in execution")
+    field(VAL,  "0")
+    field(ZNAM, "OFF")    field(ZSV, "NO_ALARM")
+    field(ONAM, "ON")     field(OSV, "NO_ALARM")
+    field(INP,  "$(P)$(R)StsLSB-R.BD CPP")
+}
+
+record(bi, "$(P)$(R)Ramping") {
+    field(DESC, "Module is ramping current or voltage")
+    field(VAL,  "0")
+    field(ZNAM, "OFF")    field(ZSV, "NO_ALARM")
+    field(ONAM, "ON")     field(OSV, "NO_ALARM")
+    field(INP,  "$(P)$(R)StsLSB-R.BC CPP")
+}
+
+record(bi, "$(P)$(R)RegMode") {
+    field(DESC, "Output regulation mode")
+    field(VAL,  "0")
+    field(ZNAM, "CURRENT")    field(ZSV, "NO_ALARM")
+    field(ONAM, "VOLTAGE")    field(OSV, "NO_ALARM")
+    field(INP,  "$(P)$(R)StsLSB-R.B5 CPP")
+}
+
+record(bi, "$(P)$(R)CtrlMode") {
+    field(DESC, "Mode of operation (LOC/REM)")
+    field(VAL,  "0")
+    field(ZNAM, "REMOTE")   field(ZSV, "NO_ALARM")
+    field(ONAM, "LOCAL")    field(OSV, "NO_ALARM")
+    field(INP,  "$(P)$(R)StsLSB-R.B2 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-R") {
+    field(DESC, "Fault Condition")
+    field(VAL,  "0")
+    field(ZNAM, "OK")     field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")    field(OSV, "$(PWRC_ALARM=NO_ALARM)")
+    field(INP,  "$(P)$(R)StsLSB-R.B1 CPP")
+}
+
+record(bi, "$(P)$(R)Status-R") {
+    field(DESC, "Power Converter Status (ON/OFF)")
+    field(VAL,  "0")
+    field(ZNAM, "OFF")   field(ZSV, "NO_ALARM")
+    field(ONAM, "ON")    field(OSV, "NO_ALARM")
+    field(INP,  "$(P)$(R)StsLSB-R.B0 CPP")
+}
+
+# When module is OFF because of fault, force ON/OFF command to OFF
+record(calcout, "$(P)$(R)CalcCommand1") {
+    field(DESC, "Force OFF setpoint when mod is OFF")
+    field(CALC, "((A = 0) && (B = 1)) ? 0 : 1")
+    field(VAL,  "0")
+    field(INPA, "$(P)$(R)Status-R CPP")
+    field(INPB, "$(P)$(R)Fault-R NPP")
+    field(OOPT, "Transition To Zero")
+    field(OUT,  "$(P)$(R)Pwr-S PP")
+    field(TPRO, "1")
+}
+
+record(calcout, "$(P)$(R)CalcCommand2") {
+    field(DESC, "Force OFF setpoint when reset fault")
+    field(CALC, "B = 1 ? 0 : 1")
+    field(VAL,  "0")
+    field(INPA, "$(P)$(R)Rst NPP")
+    field(INPB, "$(P)$(R)Fault-R NPP")
+    field(OOPT, "When Zero")
+    field(OUT,  "$(P)$(R)Pwr-S PP")
+    field(TPRO, "1")
+}
+
+
+
+############################################################
+# Error treatment
+############################################################
+record (stringin, "$(P)$(R)ErrorMsg-R")
+{
+    field(DESC, "Error message")
+    field(VAL, "IOC Initialized")
+}
+record(ao, "$(P)$(R)ErrorMsg-S") {
+    field(DESC, "")
+    field(VAL,  "0")
+    field(PINI, "YES")
+    field(FLNK, "$(P)$(R)ErrorTreat PP")
+}
+record(aSub, "$(P)$(R)ErrorTreat") {
+    field(SNAM, "ngpsError")
+    field(INPA, "$(P)$(R)ErrorMsg-S NPP")
+    field(FTA,  "LONG")
+    field(NOA,  "1")
+    
+    field(OUTA, "$(P)$(R)ErrorMsg-R PP")
+    field(FTVA, "STRING")
+    field(NOVA, "60")
+}
+
+
+

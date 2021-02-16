@@ -1,0 +1,99 @@
+record(bi, "$(P)$(R)Fault-OVP") {
+    field(DESC, "Over Power Condition")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 29 (16 + 13)
+    field(INP,  "$(P)$(R)StsMSB-R.BD CPP")
+}
+
+record(bi, "$(P)$(R)Fault-ExtIlck2") {
+    field(DESC, "External Interlock 2")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 27 (16 + 11)
+    field(INP,  "$(P)$(R)StsMSB-R.BB CPP")
+}
+
+record(bi, "$(P)$(R)Fault-ExtIlck1") {
+    field(DESC, "External Interlock 1")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 26 (16 + 10)
+    field(INP,  "$(P)$(R)StsMSB-R.BA CPP")
+}
+
+record(bi, "$(P)$(R)Fault-Ripple") {
+    field(DESC, "Excessive Ripple fault")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 25 (16 + 9)
+    field(INP,  "$(P)$(R)StsMSB-R.B9 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-Regulation") {
+    field(DESC, "Regulation fault")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 24 (16 + 8)
+    field(INP,  "$(P)$(R)StsMSB-R.B8 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-EarthFuse") {
+    field(DESC, "Earth Fuse fault")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 23 (16 + 7)
+    field(INP,  "$(P)$(R)StsMSB-R.B7 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-Leakage") {
+    field(DESC, "Earth current leakage fault")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 22 (16 + 6)
+    field(INP,  "$(P)$(R)StsMSB-R.B6 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-DCLink") {
+    field(DESC, "DC-Link under-voltage condition")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 21 (16 + 5)
+    field(INP,  "$(P)$(R)StsMSB-R.B5 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-OVT") {
+    field(DESC, "Over Temperature Condition")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 20 (16 + 4)
+    field(INP,  "$(P)$(R)StsMSB-R.B4 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-Crowbar") {
+    field(DESC, "Crowbar protection intervention")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 18 (16 + 2)
+    field(INP,  "$(P)$(R)StsMSB-R.B2 CPP")
+}
+
+record(bi, "$(P)$(R)Fault-OVC") {
+    field(DESC, "Input Over Current fault")
+    field(VAL,  "1")
+    field(ZNAM, "OK")    field(ZSV, "NO_ALARM")
+    field(ONAM, "NOK")   field(OSV, "NO_ALARM")
+    # Status Register bit 18 (16 + 1)
+    field(INP,  "$(P)$(R)StsMSB-R.B1 CPP")
+}
+
