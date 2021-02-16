@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>CAENels NGPS Faults</name>
+  <width>290</width>
+  <height>230</height>
+  <background_color>
+    <color red="220" green="220" blue="220">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <widget type="group" version="2.0.0">
+    <name>H1 Over Voltage Protection</name>
+    <width>290</width>
+    <height>230</height>
+    <style>3</style>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_24</name>
+      <pv_name>${P}${R}Fault-ExtIlck4</pv_name>
+      <bit>0</bit>
+      <x>7</x>
+      <y>11</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Ext. Interlock 4</text>
+      <x>37</x>
+      <y>11</y>
+      <width>115</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>Over Power</text>
+      <x>187</x>
+      <y>11</y>
+      <width>90</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_32</name>
+      <pv_name>${P}${R}Fault-OVP</pv_name>
+      <bit>0</bit>
+      <x>157</x>
+      <y>12</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_33</name>
+      <pv_name>${P}${R}Fault-ExtIlck3</pv_name>
+      <bit>0</bit>
+      <x>7</x>
+      <y>46</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>Ext. Interlock 3</text>
+      <x>37</x>
+      <y>46</y>
+      <width>115</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_10</name>
+      <text>Earth Fuse</text>
+      <x>187</x>
+      <y>46</y>
+      <width>90</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_34</name>
+      <pv_name>${P}${R}Fault-EarthFuse</pv_name>
+      <bit>0</bit>
+      <x>157</x>
+      <y>47</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_35</name>
+      <pv_name>${P}${R}Fault-ExtIlck2</pv_name>
+      <bit>0</bit>
+      <x>7</x>
+      <y>81</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>Ext. Interlock 2</text>
+      <x>37</x>
+      <y>81</y>
+      <width>115</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_12</name>
+      <text>Mains Fault</text>
+      <x>187</x>
+      <y>81</y>
+      <width>90</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_36</name>
+      <pv_name>${P}${R}Fault-Mains</pv_name>
+      <bit>0</bit>
+      <x>157</x>
+      <y>81</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_37</name>
+      <pv_name>${P}${R}Fault-ExtIlck1</pv_name>
+      <bit>0</bit>
+      <x>7</x>
+      <y>116</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_13</name>
+      <text>Ext. Interlock 1</text>
+      <x>37</x>
+      <y>116</y>
+      <width>115</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_14</name>
+      <text>Input OVC</text>
+      <x>187</x>
+      <y>116</y>
+      <width>90</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_38</name>
+      <pv_name>${P}${R}Fault-OVC</pv_name>
+      <bit>0</bit>
+      <x>157</x>
+      <y>117</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_39</name>
+      <pv_name>${P}${R}Fault-Leakage</pv_name>
+      <bit>0</bit>
+      <x>7</x>
+      <y>151</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_15</name>
+      <text>Earth Leakage</text>
+      <x>37</x>
+      <y>151</y>
+      <width>115</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_16</name>
+      <text>DCCT Fault</text>
+      <x>187</x>
+      <y>151</y>
+      <width>90</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_40</name>
+      <pv_name>${P}${R}Fault-DCCT</pv_name>
+      <bit>0</bit>
+      <x>157</x>
+      <y>152</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_41</name>
+      <pv_name>${P}${R}Fault-Regulation</pv_name>
+      <bit>0</bit>
+      <x>7</x>
+      <y>186</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_17</name>
+      <text>Regulation Fault</text>
+      <x>37</x>
+      <y>186</y>
+      <width>115</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_18</name>
+      <text>Over Temp.</text>
+      <x>182</x>
+      <y>186</y>
+      <width>95</width>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED Template_42</name>
+      <pv_name>${P}${R}Fault-OVT</pv_name>
+      <bit>0</bit>
+      <x>157</x>
+      <y>186</y>
+      <off_label>OK</off_label>
+      <off_color>
+        <color name="LED-RED-OFF" red="110" green="101" blue="90">
+        </color>
+      </off_color>
+      <on_label>NOK</on_label>
+      <on_color>
+        <color name="LED-RED-ON" red="255" green="60" blue="46">
+        </color>
+      </on_color>
+      <font>
+        <font family="Source Sans Pro" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="BLACK-TEXT" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+</display>

@@ -4,60 +4,18 @@ InTerminator = CR LF;
 
 getModel {
     out "VER";
-    in "#VER:%s\_%*s";
+    in "#VER:%[^:]:%(\$1)s";
     @init  {
         out "VER";
-        in "#VER:%s\_%*s"
+        in "#VER:%[^:]:%(\$1)s"
     }
 }
 
-getLimits {
-    separator=":";
-
-    out "MLIMITS:?";
-    in "#MLIMITS:%f";
-
-    @init {
-        out "MLIMITS:?";
-        in "#MLIMITS:%f";
-        # in "#MLIMITS:%(\$1Voltage.LOPR)f%(\$2Voltage.HOPR)f%(\$3Current.LOPR)f%(\$4Current.HOPR)f";
-    }
-}
-
-getMinV {
-    out "MLIMITS:?";
-    in "#MLIMITS:%f:%*s";
-}
-
-getMaxV {
-    out "MLIMITS:?";
-    in "#MLIMITS:%*f:%f%*s";
-}
-
-getMinI {
-    out "MLIMITS:?";
-    in "#MLIMITS:%*f:%*f:%f%*s";
-}
-
-getMaxI {
-    out "MLIMITS:?";
-    in "#MLIMITS:%*f:%*f:%*f:%f";
-}
-
-getVersion {
-    out "VER";
-    in "#VER:%*s\_%*[^:]:%s";
-    @init {
-        out "VER";
-        in "#VER:%*s\_%*[^:]:%s";
-    };
-}
-
-################################################################################
 
 setEnable {
     out "%{MOFF|MON}";
     in "#AK";
+    @mismatch {in "#NAK:%(\$1ErrorMsg-S)d";}
 }
 
 setRegulationMode {
@@ -71,22 +29,22 @@ setRegulationMode {
 
 # the commands are MWV (go to setpt without ramp) and MWVR (ramp)
 setVoltage {
-    out "MWV%(\$1RampEnable){|R}:%f";
+    out "MWV%(\$1Rmp-S){|R}:%f";
     in "#AK";
+    @mismatch {in "#NAK:%(\$1ErrorMsg-S)d";}
 }
 
 # the commands are MWI (go to setpt without ramp) and MWIR (ramp)
 setCurrent {
-    out "MWI%(\$1RampEnable){|R}:%f";
+    out "MWI%(\$1Rmp-S){|R}:%f";
     in "#AK";
+    @mismatch {in "#NAK:%(\$1ErrorMsg-S)d";}
 }
 
 resetStatus {
     out "MRESET";
     in "#AK";
 }
-
-################################################################################
 
 getOutputVoltage {
     out "MRV";
@@ -116,6 +74,10 @@ getTemperature {
 getStatusMSB {
     out "MST";
     in "#MST:%4x%*4x";
+    @init {
+        out "MST";
+        in "#MST:%4x%*4x";
+    }
 }
 
 getStatusLSB {
@@ -125,4 +87,19 @@ getStatusLSB {
         out "MST";
         in "#MST:%*4x%4x";
     }
+}
+
+getSlewRateI {
+    out "MSRI:?";
+    in "#MSRI:%f";
+}
+
+getSlewRateV {
+    out "MSRV:?";
+    in "#MSRV:%f";
+}
+
+getOutputPower {
+    out "MRW";
+    in "#MRW:%f";
 }

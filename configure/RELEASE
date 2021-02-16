@@ -27,3 +27,13 @@ STREAM=$(SUPPORT)/stream
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=$(TOP)/../base-3.14.12.5
+
+# Set RULES here if you want to use build rules from somewhere
+# other than EPICS_BASE:
+#RULES = $(MODULES)/build-rules
+
+# These lines allow developers to override these RELEASE settings
+# without having to modify this file directly.
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
+-include $(TOP)/configure/RELEASE.local

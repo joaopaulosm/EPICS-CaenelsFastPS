@@ -1,0 +1,4 @@
+SUPPORT=/corvette/home/epics/devel
+ASYN=/Users/joaopaulomartins/Develop/asyn
+STREAM=/Users/joaopaulomartins/Develop/StreamDevice
+EPICS_BASE=/Users/joaopaulomartins/Develop/epics-base

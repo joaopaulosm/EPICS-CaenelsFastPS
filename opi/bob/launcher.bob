@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <width>920</width>
+  <height>300</height>
+  <widget type="rectangle" version="2.0.0">
+    <name>Titlebar</name>
+    <class>TITLE-BAR</class>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>920</width>
+    <height use_class="true">50</height>
+    <line_width use_class="true">0</line_width>
+    <background_color use_class="true">
+      <color name="PRIMARY-HEADER-BACKGROUND" red="151" green="188" blue="202">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <class>TITLE</class>
+    <text>CAENels Power Converters Launcher</text>
+    <x use_class="true">20</x>
+    <y use_class="true">0</y>
+    <width>900</width>
+    <height use_class="true">50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="HEADER-TEXT" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <wrap_words use_class="true">false</wrap_words>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>caenels.bob</file>
+        <macros>
+          <FAULTS_OPI>ngps-faults.bob</FAULTS_OPI>
+          <P>TS3:</P>
+          <R>NGPS:</R>
+        </macros>
+        <target>tab</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>NGPS</text>
+    <x>30</x>
+    <y>80</y>
+    <width>260</width>
+    <height>60</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="open_display">
+        <file>caenels.bob</file>
+        <macros>
+          <FAULTS_OPI>fastps-faults.bob</FAULTS_OPI>
+          <P>TS3:</P>
+          <R>FASTPS:</R>
+        </macros>
+        <target>tab</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>FAST-PS</text>
+    <x>30</x>
+    <y>160</y>
+    <width>260</width>
+    <height>60</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>
